@@ -354,6 +354,24 @@ fn issue_605() {
 }
 
 #[test]
+fn issue_637() {
+    let f = file("tests/projects/issue-637/input.js").unwrap();
+    println!("{}", f);
+
+    assert!(!f.contains(r"`\\n`"));
+    assert!(f.contains(r"`\
+`"));
+}
+
+#[test]
+fn issue_639() {
+    let f = file("tests/projects/issue-639/input.js").unwrap();
+    println!("{}", f);
+
+    assert!(f.contains(r"`\x1b[33m Yellow \x1b[0m`"));
+}
+
+#[test]
 fn await_expr() {
     let f = file("tests/projects/await-expression/input.js").unwrap();
     println!("{}", f);
